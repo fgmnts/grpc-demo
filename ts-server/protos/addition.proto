@@ -1,0 +1,18 @@
+syntax = "proto3";
+package addition;
+
+service Addition {
+  rpc Add2Numbers (AddRequest) returns (NumberMessage);
+  rpc AddNumbersStreamRequest (stream NumberMessage) returns (NumberMessage) {}
+  rpc SayFibStreamResponse (AddRequest) returns (stream NumberMessage) {}
+}
+
+message NumberMessage {
+  int32 val = 1;
+}
+
+message AddRequest {
+  int32 a = 1;
+  int32 b = 2;
+}
+
