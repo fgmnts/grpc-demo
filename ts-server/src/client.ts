@@ -3,7 +3,7 @@ import { credentials, ServiceError } from '@grpc/grpc-js';
 
 import { AdditionClient, AddRequest, NumberMessage } from './models/addition';
 
-const client = new AdditionClient('localhost:50051', credentials.createInsecure(), {
+const client = new AdditionClient('localhost:9090', credentials.createInsecure(), {
   'grpc.keepalive_time_ms': 120000,
   'grpc.http2.min_time_between_pings_ms': 120000,
   'grpc.keepalive_timeout_ms': 20000,

@@ -18,7 +18,7 @@
 
 const { AddRequest, NumberMessage } = require("./addition_pb.js");
 const { AdditionClient } = require("./addition_grpc_web_pb.js");
-const { AdditionApp } = require("../additionapp.js");
+const { webApp } = require("../webapp.js");
 const grpc = {};
 grpc.web = require("grpc-web");
 
@@ -60,10 +60,11 @@ var additionService = new AdditionClient(
   null
 );
 //                                      opts);
-console.log(">", AdditionApp)
-var additionApp = new AdditionApp(additionService, {
+console.log(">", webApp)
+var webAppObj = new webApp(additionService, {
   AddRequest,
   NumberMessage,
 });
+console.log("> wao", webAppObj)
 
-additionApp.load();
+webAppObj.load();
